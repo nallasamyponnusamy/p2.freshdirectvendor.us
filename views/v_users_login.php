@@ -1,3 +1,4 @@
+<html>
 <form method='POST' action='/users/p_login'>
 
     Email<br>
@@ -20,3 +21,4 @@
     <input type='submit' value='Log in'>
 
 </form>
+</html>
