@@ -1,53 +1,44 @@
 <!DOCTYPE html>
-<html>
-
 <section id="mainContent" class="clear">
     <nav>
-
+        <h3>Welcome</h3>
+        <?php if ($user): ?>
+            <br/>
+         <h3><?php echo $user->first_name; ?> !</h3>
+        <?php else: ?>
+          <h3>Guest!</h3>
+        <?php
+        endif; ?>
+        <ul>
+            <?php if ($user): ?>
+<!--                <li><h4>Choose Your Options:</h4></li>-->
+                <li><a href='/posts/add'>Add a Post</a></li>
+                <li><a href='/posts/index'>BrowseBlog</a></li>
+                <li><a href='/posts/users'>List Users</a></li>
+                <li><a href='/posts/users'>Your Profile</a></li>
+            <?php else: ?>
+<!--                <h3>This is a members only site.</h3>
+                <h2>New Users, please sign-up. It's free!</h2>-->
+                <li><a href='/users/signup'> SignUp</a></li>
+                <li><a href='/users/login'> Login </a></li>
+            <?php endif; ?>
+        </ul>
     </nav>
     <section id="mainRight">
-
-        <div class="wrapper">
-
-            <h1>Welcome <?php if($user) echo $user->first_name; ?></h1>
-
-            <?php if($user): ?>
-                <h2>What would you like to do:</h2>
-                <div class="buttons">
-                    <a href='/posts/add'>Add a Post</a>
-                    <a href='/posts/index'> Check out Posts </a>
-                    <a href='/posts/users'>List Users</a>
-                </div>
-
-            <?php else: ?>
-                <h2>This is a members only site.</h2>
-                <h4>New Users, please sign-up. It's free!</h4>
-
-                <div class="buttons">
-                    <a href='/users/signup'> SignUp</a>
-                    <a href='/users/login'> Login </a>
-                </div>
-            <?php endif; ?>
-        </div>
-
-        <div><img src="images/home_img.png" width="560" height="242" alt="" title="" border="0" />
-        </div>
+<!--        <div><img src="images/home_img.png" width="560" height="242" alt="" title="" border="0" />-->
+<!--        </div>-->
         <br />
-        <blockquoteWelcome to Farmers Blog, Tell us what is fresh today from your field?</blockquote>
+        <blockquote>Testing</blockquote>
         <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit ame</p>
-
+        <p>Extra features are (1) Edit Profile (2) Upload Profile Picture</p>
 
     </section>
     <!-- end mainRight -->
 </section>
-<!-- end mainContent -->
-
-
-
 
 <footer>
     <ul>
         Project 2 - CSCIE15
     </ul>
-</footer> /*
+</footer>
+</html>

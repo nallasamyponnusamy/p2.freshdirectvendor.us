@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <h4>Welcome to <font color="#004000">Farmer's</font> <font color="#FF4640">Blog.</font></h4>
+        <h1><a href = '/index.php'> Welcome to <font color="#004000">Farmer's</font> <font color="#FF4640">Blog.</font></a></h2>
         <!-- Menu for users who are logged in -->
         <?php if ($user): ?>
             <h3><a href='/users/logout'>Logout</a>

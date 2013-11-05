@@ -321,6 +321,7 @@ nav h3 {
     font-size: 1.3em;
     margin: 0 15px;
     padding: 5px;
+    text-align: center;
     border-bottom: 4px double #85a32f;
 }
 
@@ -345,7 +346,7 @@ nav ul li:hover {
 
 nav ul li a {
     font-size: 1.2em;
-    padding: 10px 90px 10px 10px;
+    padding: 7px 90px 10px 0px;
     border: none;
 }
 
@@ -371,6 +372,12 @@ nav ul li a:hover {
     padding-top: 10px;
     text-transform: uppercase;
 }
+
+#mainRight h3 {
+    font-size: 1.2em;
+    margin: 0;
+    padding-top: 10px;
+ }
 
 .colLeft {
     float: left;
