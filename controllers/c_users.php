@@ -16,13 +16,13 @@ class users_controller extends base_controller{
         }
     }
 
-/*    public function signupSuccess(){
+    public function signupSuccess(){
         # Setup view
         $this->template->content = View::instance('v_users_signupSuccess');
         $this->template->title   = "Sign Up";
         # Render template
         echo $this->template;
-    }*/
+    }
 
     public function signup(){
         # Setup view
@@ -123,7 +123,7 @@ class users_controller extends base_controller{
         DB::instance(DB_NAME)->insert('users_users', $data);
         # For now, just confirm they've signed up -
         # You should eventually make a proper View for this
-        Router::redirect('/users/login');
+        Router::redirect('/users/signupSuccess');
 
         }
 
