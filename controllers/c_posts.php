@@ -48,7 +48,8 @@ class posts_controller extends base_controller{
     $this->template->title   = "All Posts";
 
     # Query
-    $q = 'SELECT 
+    $q = 'SELECT
+            posts.post_id,
             posts.content,
             posts.created,
             posts.user_id AS post_user_id,
@@ -135,7 +136,57 @@ public function unfollow($user_id_followed) {
     Router::redirect("/posts/users");
 
 }
-	
-}
+    /*------------------------------------------------------------------------------------------
+     delete post
+*/
+    public function delete($post_id) {
+
+        DB::instance(DB_NAME)->delete('posts','WHERE post_id ='.$post_id);
+
+        # Send them back to the homepage
+        Router::redirect('/posts');
+    }
+
+    /*---------------------------------------------------------------------------------------------
+           edit post view
+    */
+
+    public function edit($post_id) {
+        # Set up view
+        $this->template->content = View::instance("v_posts_edit");
+
+        # Set up query to get all users
+        $q = 'SELECT * FROM posts where post_id = '.$post_id;
+
+        # Run query
+        $post = DB::instance(DB_NAME)->select_row($q);
+
+
+
+        # Pass data to the view
+        $this->template->content->post = $post;
+
+        # Render view
+        echo $this->template;
+
+    }
+
+    /*---------------------------------------------------------------------------------------------
+           edit post view
+    */
+    public function p_edit($post_id) {
+
+        $content = $_POST['content'];
+
+        # Update their row in the DB with the new token
+        $data = Array(
+            'content' => $content
+        );
+
+        DB::instance(DB_NAME)->update('posts',$data, 'WHERE post_id ='.$post_id);
+        Router::redirect('/posts/');
+
+    }
+}#End of Class posts_controller
 
  

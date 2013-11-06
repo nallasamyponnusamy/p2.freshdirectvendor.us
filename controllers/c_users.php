@@ -1,4 +1,5 @@
 <?php
+global $user_id;
 class users_controller extends base_controller{
     public function __construct(){
         parent:: __construct();
@@ -39,6 +40,19 @@ class users_controller extends base_controller{
 
         # Insert this user into the database
         $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+
+
+        # Prepare the data array to be inserted
+        $data = Array(
+            "created" => Time::now(),
+            "user_id" => $user_id,
+            "user_id_followed" => $user_id
+        );
+
+        # Do the insert
+        DB::instance(DB_NAME)->insert('users_users', $data);
+
+
 
         # For now, just confirm they've signed up -
         # You should eventually make a proper View for this
@@ -159,6 +173,106 @@ class users_controller extends base_controller{
 
         # Render View
         echo $this->template;
+    }
+
+            /*
+           When the user forgets his password, He or She can use this option
+           What we do here is
+                (1) Generate a random password
+                (2) Update his existing password with this random password
+                (3) Email the new password
+            */
+
+    public function forgetpwd($error = NULL){
+        # Setup view
+        $this->template->content = View::instance('v_forget_password');
+        # Pass data to the view
+        $this->template->content->error = $error;
+
+        # Render template
+        echo $this->template;
+    }
+
+
+    public function p_forgetpwd(){
+        # Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
+        $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+        # Search the db for this email and password
+        # Retrieve the token if it's available
+       $q = "SELECT user_id
+        FROM users
+        WHERE email = '".$_POST['email']."'";
+
+       $user_id = DB::instance(DB_NAME)->select_field($q);
+
+        # If we didn't find a matching token in the database, it means login failed
+        if(!$user_id) {
+
+            # Send them back to the login page
+            Router::redirect("/users/login/error");
+
+            # But if we did, login succeeded!
+        } else {
+
+            /*
+            Reset password and send it to the user through his or her email
+            */
+
+        # Send them back to the login page
+            $this->template->content = View::instance('v_reset_password');
+            $this->template->title   = "Reset Password";
+            # Pass data (users and connections) to the view
+            $this->template->content->userid  = $user_id;
+
+            # Render template
+            echo $this->template;
+          //  Router::redirect("/users/login/reset");
+
+            # Send them to the main page - or wherever you want them to go
+           // Router::redirect("/");
+        }
+
+    }
+
+    public function p_resetpwd(){
+        # Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
+        $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+        $update_fields['modified'] = Time::now();
+        #Encrypt the password
+        $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+        $update_fields['password'] = $_POST['password'];
+        $user_id = $_POST['user_id'];
+        # Search the db for this email and password
+        # Retrieve the token if it's available
+        // Update database straight from the $_POST/$valid_fields array, similar to insert in sign-up
+        echo DB::instance(DB_NAME)->update('users', $update_fields, "WHERE user_id =" .$user_id);
+
+          # If we didn't find a matching token in the database, it means login failed
+       // if(!$token) {
+
+            # Send them back to the login page
+         //   Router::redirect("/users/login/error");
+
+            # But if we did, login succeeded!
+       // } else {
+
+            /*
+            Reset password and send it to the user through his or her email
+            */
+            echo "hit";
+            # Send them back to the login page
+//            $this->template->content = View::instance('v_password_success');
+//            $this->template->title   = " Password";
+//            # Render template
+//            echo $this->template;
+            //  Router::redirect("/users/login/reset");
+
+            # Send them to the main page - or wherever you want them to go
+            // Router::redirect("/");
+      //  }
+
     }
 
 } #end of class

@@ -315,28 +315,60 @@ nav {
     text-align: left;
 }
 
+.userName, .userNameGuest {
+
+    color: red;
+    font-weight: bolder;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.userNameGuest {
+    color: #992b04;
+    font-size: 1.8em;
+}
+
+li.even {
+    background-color:#dedbac;
+    /*color:#85a32f ;*/
+}
+
+li.odd {
+    background-color:#cccccc;
+    /*color:#3FF;*/
+}
+
 nav h3 {
     color: #333;
     font-weight: bolder;
     font-size: 1.3em;
     margin: 0 15px;
-    padding: 5px;
+    padding: 4px;
+    text-align: center;
+    /*border-bottom: 4px double #85a32f;*/
+}
+
+nav h4 {
+    color: #333;
+    font-weight: bolder;
+    font-size: 1.3em;
+    margin: 0 15px;
+    padding: 4px;
     text-align: center;
     border-bottom: 4px double #85a32f;
 }
-
 nav ul {
     list-style: none;
     width: 200px;
     margin-left: 0;
-    padding-top: 5px;
+    padding-top: 4px;
     border: none;
 }
 
 nav ul li {
     display: block;
     margin: 0 15px;
-    padding: 10px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #85a32f;
 }
 
@@ -355,9 +387,11 @@ nav ul li a:hover {
 }
 
 #mainRight, #mainRight2 {
-    float: right;
-    width: 560px;
+    float:right;
+    width: 650px;
     text-align: left;
+    height:550px;
+    overflow:scroll;
 }
 
 #mainRight h1 {
