@@ -56,9 +56,9 @@
     </section>
 
     <footer>
-        <ul>
+
             Project 2 - CSCIE15
-        </ul>
+       
     </footer>
 </html>
 
