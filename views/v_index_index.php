@@ -1,9 +1,21 @@
 
-<!--        <div><img src="images/home_img.png" width="560" height="242" alt="" title="" border="0" />-->
-<!--        </div>-->
-        <br />
-        <blockquote>Testing</blockquote>
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Extra features are (1) Edit Profile (2) Upload Profile Picture</p>
+        <br/>
+        <blockquote>Thanks to Instructor Susan Buck MPS and All TFs</blockquote>
+        <h1>Welcome to Farmer’s Blog!</h1>
+        <h3>This is an online portal for farmer community to announce their crop status, weather, yield etc.
+            <br><br>
+            + 1 Features
+            <br><br>
+            -	Password Reset Option
+            <br>
+            -	Edit Own Posts
+            <br>
+            -	Delete Own Posts
+            <br><br>
+         </h3>
+
+
+
+
 
 
