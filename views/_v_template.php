@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="Description" content="Farmer's Blog">
-    <title>Farmer's Blog!</title>
-    <?php
-    define('CSSPATH', '/css/'); //define css path
-    $cssItem = 'default.css'; //css item to display
-    ?>
-        <link rel="stylesheet" href="<?php echo(CSSPATH . "$cssItem"); ?>" type="text/css">
-        <!--[if IE]>
-        <script src="<?php echo "http://html5shim.googlecode.com/svn/trunk/html5.js"; ?>" </script>
-        <![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="Description" content="Farmer's Blog">
+        <title>Farmer's Blog!</title>
+        <?php
+        define('CSSPATH', '/css/'); //define css path
+        $cssItem = 'default.css'; //css item to display
+        ?>
+            <link rel="stylesheet" href="<?php echo(CSSPATH . "$cssItem"); ?>" type="text/css">
+            <!--[if IE]>
+            <script src="<?php echo "http://html5shim.googlecode.com/svn/trunk/html5.js"; ?>" </script>
+            <![endif]-->
     </head>
 
     <header>
@@ -54,7 +54,6 @@
         </section>
         <!-- end mainRight -->
     </section>
-
     <footer>
 <!--        Show HTML 5 Validation and footer info-->
         <p>

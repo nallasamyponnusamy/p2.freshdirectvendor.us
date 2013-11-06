@@ -149,9 +149,9 @@ class users_controller extends base_controller{
         # Search the db for this email and password
         # Retrieve the token if it's available
         $q = "SELECT token
-        FROM users
-        WHERE email = '".$_POST['email']."'
-        AND password = '".$_POST['password']."'";
+              FROM users
+              WHERE email    = '".$_POST['email']."'
+              AND   password = '".$_POST['password']."'";
 
         $token = DB::instance(DB_NAME)->select_field($q);
 
@@ -212,7 +212,6 @@ class users_controller extends base_controller{
         }
 
         # If they weren't redirected away, continue:
-
         # Setup view
         $this->template->content = View::instance('v_users_profile');
         $this->template->title   = "Profile of".$this->user->first_name;
@@ -241,11 +240,11 @@ class users_controller extends base_controller{
 
         # Search the db for this email and password
         # Retrieve the token if it's available
-       $q = "SELECT user_id
-        FROM users
-        WHERE email = '".$_POST['email']."'";
+        $q = "SELECT user_id
+              FROM users
+              WHERE email = '".$_POST['email']."'";
 
-       $user_id = DB::instance(DB_NAME)->select_field($q);
+        $user_id = DB::instance(DB_NAME)->select_field($q);
 
         # If we didn't find a matching token in the database, it means login failed
         if(!$user_id) {
