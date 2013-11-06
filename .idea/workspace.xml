@@ -55,7 +55,7 @@
       <file leaf-file-name="c_posts.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/c_posts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="80" selection-start="284" selection-end="284" vertical-scroll-proportion="0.1367816" vertical-offset="0" max-vertical-offset="3366">
+            <state line="7" column="23" selection-start="227" selection-end="227" vertical-scroll-proportion="0.1367816" vertical-offset="0" max-vertical-offset="3366">
               <folding />
             </state>
           </provider>
@@ -577,7 +577,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/c_posts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="80" selection-start="284" selection-end="284" vertical-scroll-proportion="0.1367816" vertical-offset="0" max-vertical-offset="3366">
+        <state line="7" column="23" selection-start="227" selection-end="227" vertical-scroll-proportion="0.1367816" vertical-offset="0" max-vertical-offset="3366">
           <folding />
         </state>
       </provider>
