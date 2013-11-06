@@ -28,9 +28,13 @@
         <br> <br>
         </div>
         <div class='errorSmall'>
-            - Please enter all relevant information!
+            Due to one or more of the following reasons..
+            <br><br>
+            - Less Password length (Minimum 3 Characters are required)
             <br>
-            - Also Check for Password length (Minimum 3 Characters)
+            - The email you provided is in use already
+            <br>
+            - Blank fields are not allowed
             <br>
         </div>
         </div>

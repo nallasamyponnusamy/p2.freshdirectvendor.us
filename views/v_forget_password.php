@@ -5,14 +5,20 @@
     <input type='text' name='email'>
 
     <br><br>
-	  <?php if(isset($error)): ?>
+    <input type='submit' value='Reset Password'>
+<!--    Wrong email / invalid email error-->
+    <br><br>
+    <?php if(isset($error)): ?>
         <div class='error'>
-            The Email you have provided is not valid or you have not registered yet. If you have not registered, please singup.
+            Error!.
+        </div>
+        <br>
+        <div class='errorSmall'>
+            The Email you have provided is not valid or you have not registered yet. If you have not registered, please
+            signup!.
         </div>
         <br>
     <?php endif; ?>
-	
-    <input type='submit' value='Reset Password'>
 
 </form>
 </html>

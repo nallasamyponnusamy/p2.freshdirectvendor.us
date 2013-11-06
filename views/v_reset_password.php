@@ -14,6 +14,14 @@
     <br><br>
     <input type='submit' value='Change Password'>
 
+    <?php if(isset($error)): ?>
+        <div class='error'>
+            This Email is not Registered or Invalid Email ID.
+        </div>
+        <br>
+    <?php endif; ?>
+
+
     <script>
     if(jQuery('password').val() != jQuery('confirmpassword').val())
     {

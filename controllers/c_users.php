@@ -16,6 +16,13 @@ class users_controller extends base_controller{
         }
     }
 
+/*    public function signupSuccess(){
+        # Setup view
+        $this->template->content = View::instance('v_users_signupSuccess');
+        $this->template->title   = "Sign Up";
+        # Render template
+        echo $this->template;
+    }*/
 
     public function signup(){
         # Setup view
@@ -37,16 +44,15 @@ class users_controller extends base_controller{
             return false;
         } elseif(trim($_POST['password']) == false) {
             return false;
+        # If we find the password, Check for the length (minimum 3 characters)
+        } elseif(strlen(trim($_POST['password'])) < 3) {
+            return false;
         }
         else{
             // if all is well, we return TRUE
-            return True;
+            return TRUE;
         }
-        # If we find the password, Check for the length min 3 charc
-        if (strlen(trim($_POST['password'])) < 3)  {
-            return false;
-        }
-    }
+    } //checkFieldsFullAndLong
 
     // Fucntion to check whether email already exists
     private function doesEmailExists() {
@@ -82,7 +88,6 @@ class users_controller extends base_controller{
             $this->template->content = View::instance('v_users_signup');
             $this->template->title   = "Sign Up";
 
-
             // Pass data to the view
             $this->template->content->error = true;
 
@@ -90,16 +95,8 @@ class users_controller extends base_controller{
 
             // Render template
             echo $this->template;
-            #echo "This is the login page";
-
-            // Send them back to the signup page
-            // Signin failed ... maybe give 'forgot password' option to reset password.
-            //echo "You already have an account";
-            //Router::redirect("/users/signup/error");
         }
         else{
-
-        }
 
 #More data we want stored with the user
         $_POST['created'] = Time::now();
@@ -126,7 +123,9 @@ class users_controller extends base_controller{
         DB::instance(DB_NAME)->insert('users_users', $data);
         # For now, just confirm they've signed up -
         # You should eventually make a proper View for this
-      //  Router::redirect('/users/login');
+        Router::redirect('/users/login');
+
+        }
 
     }
 
@@ -217,40 +216,13 @@ class users_controller extends base_controller{
         # Setup view
         $this->template->content = View::instance('v_users_profile');
         $this->template->title   = "Profile of".$this->user->first_name;
-
-
-
-        #create an array of 1 or many client files to be included in the head
-        $client_files_head = Array(
-            '/css/widgets.css',
-            '/css/profile.css'
-        );
-
-        #use load_client_files to generate the links from the above array
-        $this->template->client_files_head = Utils::load_client_files($client_files_head);
-
-        #create an array of 1 or many client files to be included before the closing </body> tag
-        $client_files_body = Array(
-            '/js/widgets.min.js',
-            '/js/profile.min.js'
-        );
-
-        #use load_client_files to generate the links from above array
-        $this->template->client_files_body = Utils::load_client_files($client_files_body);
-
-
-
         # Render View
         echo $this->template;
     }
 
-            /*
-           When the user forgets his password, He or She can use this option
-           What we do here is
-                (1) Generate a random password
-                (2) Update his existing password with this random password
-                (3) Email the new password
-            */
+      /*
+       When the user forgets his password, He or She can use this option
+      */
 
     public function forgetpwd($error = NULL){
         # Setup view
@@ -277,18 +249,11 @@ class users_controller extends base_controller{
 
         # If we didn't find a matching token in the database, it means login failed
         if(!$user_id) {
-
             # Send them back to the login page
-            Router::redirect("/users/login/error");
-
+            Router::redirect("/users/forgetpwd/error");
             # But if we did, login succeeded!
         } else {
-
-            /*
-            Reset password and send it to the user through his or her email
-            */
-
-        # Send them back to the login page
+            # Send them back to the login page
             $this->template->content = View::instance('v_reset_password');
             $this->template->title   = "Reset Password";
             # Pass data (users and connections) to the view
@@ -317,30 +282,16 @@ class users_controller extends base_controller{
         # Retrieve the token if it's available
         // Update database straight from the $_POST/$valid_fields array, similar to insert in sign-up
         echo DB::instance(DB_NAME)->update('users', $update_fields, "WHERE user_id =" .$user_id);
-
-          # If we didn't find a matching token in the database, it means login failed
-       // if(!$token) {
-
-            # Send them back to the login page
-         //   Router::redirect("/users/login/error");
-
-            # But if we did, login succeeded!
-       // } else {
-
-            /*
-            Reset password and send it to the user through his or her email
-            */
-            echo "hit";
-            # Send them back to the login page
-//            $this->template->content = View::instance('v_password_success');
-//            $this->template->title   = " Password";
-//            # Render template
-//            echo $this->template;
+              # Tell the user that his/her password has been reset
+                $this->template->content = View::instance('v_password_success');
+                $this->template->title   = " Password";
+              # Render template
+                 echo $this->template;
             //  Router::redirect("/users/login/reset");
 
             # Send them to the main page - or wherever you want them to go
             // Router::redirect("/");
-      //  }
+
 
     }
 
