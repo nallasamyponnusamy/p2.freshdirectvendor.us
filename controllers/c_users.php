@@ -28,7 +28,27 @@ class users_controller extends base_controller{
 
     public function p_signup() {
 
-        #More data we want stored with the user
+#Validate the form
+// Making sure $_POST['flavor'] exists before checking its length
+if (! (isset($_POST['first_name']) && strlen($_POST['first_name']))) {
+   $nameerror = 'x';
+}
+
+// $_POST['color'] is optional, but if it's supplied, it must be
+// more than 5 characters
+if (isset($_POST['password']) && (strlen($_POST['password']) <=3 )) {
+    print 'Color must be more than 5 characters.';
+}
+
+// Making sure $_POST['choices'] exists and is an array
+if (! (isset($_POST['choices']) && is_array($_POST['choices']))) {
+    print 'You must select some choices.';
+}
+
+
+
+
+#More data we want stored with the user
         $_POST['created'] = Time::now();
         $_POST['modified'] = Time::now();
 
@@ -51,12 +71,8 @@ class users_controller extends base_controller{
 
         # Do the insert
         DB::instance(DB_NAME)->insert('users_users', $data);
-
-
-
         # For now, just confirm they've signed up -
         # You should eventually make a proper View for this
-//        echo 'You\'re signed up';
         Router::redirect('/users/login');
 
     }

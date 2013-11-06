@@ -16,6 +16,21 @@
     <input type='password' name='password'>
     <br><br>
 
+    <?php if(isset($nameerror)): ?>
+        <div class='error'>
+            Login failed. Please double check your email and password.
+        </div>
+    <?php endif; ?>
+
+
+    <?php if(isset($emailerror)): ?>
+        <br>
+    <?php endif; ?>
+
+    <?php if(isset($emailerror)): ?>
+    <?php endif; ?>
+
+
     <input type='submit' value='Sign up'>
 
 </form>

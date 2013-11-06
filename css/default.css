@@ -323,6 +323,15 @@ nav {
     text-align: center;
 }
 
+.farmer {
+    color: darkolivegreen;
+}
+
+.blog {
+    color: orangered;
+}
+
+
 .userNameGuest {
     color: #992b04;
     font-size: 1.8em;
@@ -368,7 +377,7 @@ nav ul {
 nav ul li {
     display: block;
     margin: 0 15px;
-    padding: 8px 0;
+    padding: 13px 0;
     border-bottom: 1px solid #85a32f;
 }
 
