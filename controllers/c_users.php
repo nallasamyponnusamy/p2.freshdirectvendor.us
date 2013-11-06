@@ -25,28 +25,81 @@ class users_controller extends base_controller{
         echo $this->template;
     }
 
+    //  validate field trim & length (empty fields in signup)
+
+    private function checkFieldsFullAndLong() {
+        #Validate the form
+        if(trim($_POST['first_name']) == false) {
+            return false;
+        } elseif(trim($_POST['last_name']) == false) {
+            return false;
+        } elseif(trim($_POST['email']) == false) {
+            return false;
+        } elseif(trim($_POST['password']) == false) {
+            return false;
+        }
+        else{
+            // if all is well, we return TRUE
+            return True;
+        }
+        # If we find the password, Check for the length min 3 charc
+        if (strlen(trim($_POST['password'])) < 3)  {
+            return false;
+        }
+    }
+
+    // Fucntion to check whether email already exists
+    private function doesEmailExists() {
+
+        //Make sure it's sanitized first
+        $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+        // Search the db for this email
+        $q = "SELECT COUNT(*)
+        		FROM users
+        		WHERE email  = '" .$_POST['email']. "'";
+
+        // Run the query, echo what it returns
+        $count = DB::instance(DB_NAME)->select_field($q);
+        // If the counter is more than 0
+        if($count > 0) {
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
+
 
     public function p_signup() {
 
-#Validate the form
-// Making sure $_POST['flavor'] exists before checking its length
-if (! (isset($_POST['first_name']) && strlen($_POST['first_name']))) {
-   $nameerror = 'x';
-}
+        $existingEmail = $this->doesEmailExists();
 
-// $_POST['color'] is optional, but if it's supplied, it must be
-// more than 5 characters
-if (isset($_POST['password']) && (strlen($_POST['password']) <=3 )) {
-    print 'Color must be more than 5 characters.';
-}
+        if(!$existingEmail || !$this->checkFieldsFullAndLong()) {
 
-// Making sure $_POST['choices'] exists and is an array
-if (! (isset($_POST['choices']) && is_array($_POST['choices']))) {
-    print 'You must select some choices.';
-}
+            // Setup view
+            $this->template->content = View::instance('v_users_signup');
+            $this->template->title   = "Sign Up";
 
 
+            // Pass data to the view
+            $this->template->content->error = true;
 
+            $this->template->content->existingEmail = $existingEmail;
+
+            // Render template
+            echo $this->template;
+            #echo "This is the login page";
+
+            // Send them back to the signup page
+            // Signin failed ... maybe give 'forgot password' option to reset password.
+            //echo "You already have an account";
+            //Router::redirect("/users/signup/error");
+        }
+        else{
+
+        }
 
 #More data we want stored with the user
         $_POST['created'] = Time::now();
@@ -73,7 +126,7 @@ if (! (isset($_POST['choices']) && is_array($_POST['choices']))) {
         DB::instance(DB_NAME)->insert('users_users', $data);
         # For now, just confirm they've signed up -
         # You should eventually make a proper View for this
-        Router::redirect('/users/login');
+      //  Router::redirect('/users/login');
 
     }
 

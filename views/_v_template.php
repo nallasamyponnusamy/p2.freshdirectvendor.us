@@ -43,9 +43,9 @@
                     <li><a href='/users/logout'>Logout</a></li>
                 <?php else: ?>
                     <!-- Menu for users who are NOT logged in -->
-                    <li><a href='/users/signup'> SignUp</a></li>
-                    <li><a href='/users/login'> Login </a></li>
-                    <li><a href='/users/forgetpwd'> Forgot Password </a></li>
+                    <li><a href='/users/signup'>SignUp</a></li>
+                    <li><a href='/users/login'>Login </a></li>
+                    <li><a href='/users/forgetpwd'>Forgot Password?</a></li>
                 <?php endif; ?>
             </ul>
         </nav>
@@ -56,9 +56,15 @@
     </section>
 
     <footer>
-
+<!--        Show HTML 5 Validation and footer info-->
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss"
+                     alt="Valid CSS!" />
+            </a>
+        </p>
             Project 2 - CSCIE15
-       
     </footer>
 </html>
 

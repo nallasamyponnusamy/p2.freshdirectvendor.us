@@ -16,21 +16,30 @@
     <input type='password' name='password'>
     <br><br>
 
-    <?php if(isset($nameerror)): ?>
-        <div class='error'>
-            Login failed. Please double check your email and password.
-        </div>
-    <?php endif; ?>
-
-
-    <?php if(isset($emailerror)): ?>
-        <br>
-    <?php endif; ?>
-
-    <?php if(isset($emailerror)): ?>
-    <?php endif; ?>
 
 
     <input type='submit' value='Sign up'>
+    <br><br>
 
+    <?php if(isset($error)): ?>
+        <br>
+        <div class='error'>
+            Login failed!
+        <br> <br>
+        </div>
+        <div class='errorSmall'>
+            - Please enter all relevant information!
+            <br>
+            - Also Check for Password length (Minimum 3 Characters)
+            <br>
+        </div>
+        </div>
+    <?php endif; ?>
+
+<!--    --><?php //if($existingEmail == false): ?>
+<!--    <div class='error'>-->
+<!--        Signup failed. You already have an account.-->
+<!--    </div>-->
+<!--    --><?php //endif; ?>
+    <br>
 </form>

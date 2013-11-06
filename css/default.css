@@ -411,6 +411,17 @@ nav ul li a:hover {
     text-transform: uppercase;
 }
 
+.error {
+    color: red;
+    font-weight: bolder;
+    font-size: 1.8em;
+}
+
+.errorSmall {
+    color: red;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
 #mainRight h3 {
     font-size: 1.2em;
     margin: 0;
