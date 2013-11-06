@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4896994b-0918-4806-8b7e-80586b0efebe" name="Default" comment="Second Commit">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/c_posts.php" afterPath="$PROJECT_DIR$/controllers/c_posts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/v_reset_password.php" afterPath="$PROJECT_DIR$/views/v_reset_password.php" />
     </list>
     <ignored path="p2.freshdirectvendor.us.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,10 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="c_posts.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="c_posts.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/c_posts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="29" selection-start="557" selection-end="557" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="3366">
+            <state line="7" column="17" selection-start="221" selection-end="221" vertical-scroll-proportion="0.1367816" vertical-offset="0" max-vertical-offset="3366">
               <folding />
             </state>
           </provider>
@@ -91,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="v_reset_password.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="v_reset_password.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/v_reset_password.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.05862069" vertical-offset="0" max-vertical-offset="870">
+            <state line="3" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="272">
               <folding />
             </state>
           </provider>
@@ -157,8 +156,8 @@
         <option value="$PROJECT_DIR$/views/v_posts_users.php" />
         <option value="$PROJECT_DIR$/css/default.css" />
         <option value="$PROJECT_DIR$/views/v_posts_index.php" />
-        <option value="$PROJECT_DIR$/controllers/c_posts.php" />
         <option value="$PROJECT_DIR$/views/v_reset_password.php" />
+        <option value="$PROJECT_DIR$/controllers/c_posts.php" />
       </list>
     </option>
   </component>
@@ -579,13 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/c_posts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="29" selection-start="557" selection-end="557" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="3366">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/v_forget_password.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="896">
@@ -595,7 +587,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/v_reset_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.05862069" vertical-offset="0" max-vertical-offset="870">
+        <state line="3" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/c_posts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="17" selection-start="221" selection-end="221" vertical-scroll-proportion="0.1367816" vertical-offset="0" max-vertical-offset="3366">
           <folding />
         </state>
       </provider>

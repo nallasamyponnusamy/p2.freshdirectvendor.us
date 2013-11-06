@@ -5,7 +5,7 @@ class posts_controller extends base_controller{
 		
 		#Make sure user is logged in if they want to use anything in this controller
 		if(!$this->user){
-			die("<a href='/users/login'>Registered Members only, Click here to Login</a>");
+			die("");
 		}
 	
 	}
