@@ -11,11 +11,11 @@
     <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>">
         <?=Time::display($post['created'])?>
     </time>
-
+    <br><br>
     <?php if($user->user_id == $post['post_user_id']): ?>
-    <a href=/posts/edit/<?=$post['post_id']?>>edit</a>
-    |
-    <a href=/posts/delete/<?=$post['post_id']?>>delete</a>
+    <a class='unfollow'  href=/posts/edit/<?=$post['post_id']?>>Edit </a>
+    /
+    <a class='follow'  href=/posts/delete/<?=$post['post_id']?>> Delete</a>
     <br/>
 
     <?php endif; ?>
