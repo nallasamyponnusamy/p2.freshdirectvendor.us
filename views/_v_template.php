@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="Description" content="Farmer's Blog">
-        <title>Farmer's Blog</title>
-        <?php
-            define('CSSPATH', '/css/'); //define css path
-            $cssItem = 'default.css'; //css item to display
-        ?>
+<head>
+    <meta charset="utf-8">
+    <meta name="Description" content="Farmer's Blog">
+    <title>Farmer's Blog!</title>
+    <?php
+    define('CSSPATH', '/css/'); //define css path
+    $cssItem = 'default.css'; //css item to display
+    ?>
         <link rel="stylesheet" href="<?php echo(CSSPATH . "$cssItem"); ?>" type="text/css">
         <!--[if IE]>
         <script src="<?php echo "http://html5shim.googlecode.com/svn/trunk/html5.js"; ?>" </script>
@@ -16,8 +16,8 @@
     </head>
 
     <header>
-        <h1><a href = '/index.php'> Farm Fresh News!</h1></a>
-        <h2 class="farmer"> Farmer's Blog.</h2>
+        <h1><a href = '/index.php'> ..for farming community!</a></h1>
+        <h2 class="blog">Announcement Portal</h2>
     </header>
 
 
@@ -46,7 +46,6 @@
                     <li><a href='/users/signup'> SignUp</a></li>
                     <li><a href='/users/login'> Login </a></li>
                     <li><a href='/users/forgetpwd'> Forgot Password </a></li>
-
                 <?php endif; ?>
             </ul>
         </nav>
@@ -58,7 +57,7 @@
 
     <footer>
         <ul>
-         Project 2 - CSCIE15
+            Project 2 - CSCIE15
         </ul>
     </footer>
 </html>
